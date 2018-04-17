@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Erf.cs" />
-    <Compile Include="Erfcs.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
