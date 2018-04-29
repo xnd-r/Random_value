@@ -23,11 +23,11 @@ using System.Windows.Forms.DataVisualization;
         double interval_len;
         Array rand_val_array;
         Array gist_array;
+        double[] hit_probability;
         double lboard, rboard;
 
         double delta;
         unsafe int num = 0;
-
 
         public Form1()
         {
@@ -38,6 +38,7 @@ using System.Windows.Forms.DataVisualization;
             lambda = System.Convert.ToDouble(textBox2.Text);
             rand_val_array = new double[M];
             gist_array = new double[K];
+            textBox4.Text = Convert.ToString(N / 3);
         }
 
         unsafe private void init()
@@ -74,6 +75,43 @@ using System.Windows.Forms.DataVisualization;
                 counter = 0;
             }
 
+        }
+
+        private void hypo_intervals()
+        {
+            int K = Convert.ToInt16(textBox4.Text);
+            lboard = Convert.ToDouble(textBox5.Text);
+            rboard = Convert.ToDouble(textBox6.Text);
+            delta = Convert.ToDouble(textBox7.Text);
+
+            for (int j = 0; j < K; ++j)
+            {
+                int counter = 0;
+                for (int i = 0; i < M; ++i)
+                {
+                    if (lboard + j * delta < Convert.ToDouble(rand_val_array.GetValue(i))
+                        && Convert.ToDouble(rand_val_array.GetValue(i)) < lboard + (j + 1) * delta)
+                    {
+                        counter++;
+                    }
+
+                }
+                gist_array.SetValue((counter / (M * delta)), j);
+                counter = 0;
+            }
+
+        }
+
+        private double get_R0(int m, int k, double[] ar, double[] hit_ar)
+        {
+            double res = 0.0;
+            for (int j = 0; j < k; ++j)
+            {
+                res += (Math.Pow((Convert.ToDouble(ar.GetValue(j)) / m) 
+                    - Convert.ToDouble(hit_ar.GetValue(j)), 2) 
+                    / Convert.ToDouble(hit_ar.GetValue(j)));
+            }
+            return (res * m);
         }
 
         private double get_F_th(double x, double l)
@@ -159,14 +197,14 @@ using System.Windows.Forms.DataVisualization;
         private void buttonDraw_Click_1(object sender, EventArgs e)
         {
             double lambda = System.Convert.ToDouble(textBox2.Text);
-            // Создаём генератор графика
+            // create graph generator
             GraphFunctionGenerator gFGenerator = new GraphFunctionGenerator(50, lambda);
-            // Создаём генератор картинки
+            // create зшсегку generator
             GraphicsImageGenerator gIGenerator =
                 new GraphicsImageGenerator(
                     gFGenerator.ListOfPoints, pictureBox.Width,
                     pictureBox.Height, float.Parse(textBoxScale.Text));
-            // Выводим картинку в pictureBox.
+            // load picture into pictureBox.
             pictureBox.Image = gIGenerator.Bitmap;
         }
 
@@ -200,12 +238,12 @@ using System.Windows.Forms.DataVisualization;
             }
             set_intervals();
             set_choosen_values();
+            textBox5.Text = Convert.ToString(rand_val_array.GetValue(3));
+            textBox6.Text = Convert.ToString(rand_val_array.GetValue(M - 3));
             chart1.ChartAreas[0].AxisX.LabelStyle.Format = "0.###";
-
+            //dataGridView2.Rows.Add();
             for (int j = 0; j < K; ++j)
                 chart1.Series["Series1"].Points.AddXY(lboard + j * delta, gist_array.GetValue(j));
-
-            dataGridView2.Rows.Add();
             dataGridView2.Rows[0].Cells[0].Value = Convert.ToString(expect_val);
             dataGridView2.Rows[0].Cells[1].Value = Convert.ToString(average);
             dataGridView2.Rows[0].Cells[2].Value = Convert.ToString(Math.Abs(expect_val - average));
@@ -224,9 +262,20 @@ using System.Windows.Forms.DataVisualization;
             }
         }
 
-        private double get_density(double x)
+        public double get_density(double x)
         {
             return (lambda * Math.Exp(-lambda * x));
+        }
+
+        private double get_qj(double a, double b)
+        {
+            double res = 0.0;
+            for (int k = 1; k < 1000; ++k)
+            {
+                res += (get_density(a + ((b - a) * (k - 1) / 1000)) +
+                    get_density(a + ((b - a) * k / 1000))) * (b - a) / 2000;
+            }
+            return res;
         }
 
         private double get_max_dif(double[] yF, double[] yFCh, int n)
@@ -246,11 +295,74 @@ using System.Windows.Forms.DataVisualization;
                 dataGridView3.Columns.Add("column", Convert.ToString(i + 1));
             }
             dataGridView3.Rows.Add();
+                        dataGridView3.Rows.Add();
             for (int i = 0; i < K; ++i)
             {
                 dataGridView3.Rows[0].Cells[i].Value = Convert.ToString(get_density(lboard + (i + 0.5) * delta));
                 dataGridView3.Rows[1].Cells[i].Value = Convert.ToString(gist_array.GetValue(i));
+                dataGridView3.Rows[2].Cells[i].Value = Convert.ToString(Math.Abs(get_density(lboard + (i + 0.5) * delta) 
+                    - Convert.ToDouble(gist_array.GetValue(i))));
             }
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            double Z1 = (Convert.ToDouble(textBox6.Text));
+
+            int K = Convert.ToInt16(textBox4.Text);
+            textBox7.Text = Convert.ToString((Convert.ToDouble(textBox6.Text) 
+                - Convert.ToDouble(textBox5.Text)) / Convert.ToDouble(textBox4.Text));
+            double delta = Convert.ToDouble(textBox7.Text);
+
+            hypo_intervals(); // nj
+            hit_probability = new double[K - 2]; // qj
+            for(int j = 0; j < K - 2; ++j)
+            {
+                hit_probability[j] = get_qj(Z1 + j * delta, Z1 + (j + 1) * delta);
+            }
+
+
+
+        }
+        //private void hypo_array()
+        //{
+        //    for (int j = 1; j < K + 1; ++j)
+
+        //}
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
 
         }
 

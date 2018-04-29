@@ -31,7 +31,7 @@ namespace Random_value
             // Scaling
             for (int i = 0; i < listOfPoints.Length; i++)
             {
-                listOfPoints[i].X = listOfPoints[i].X * scale + 5;
+                listOfPoints[i].X = listOfPoints[i].X * scale;
                 listOfPoints[i].Y = listOfPoints[i].Y * scale + height / 2;
             }
             // ots drawing.
