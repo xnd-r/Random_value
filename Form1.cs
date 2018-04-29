@@ -34,7 +34,7 @@ using System.Windows.Forms.DataVisualization;
             InitializeComponent();
             M = System.Convert.ToInt32(textBox3.Text);
             N = System.Convert.ToInt32(textBox1.Text);
-            K = M / 5; // may be loss of data 
+            K = (int)(1.44 * Math.Log(M) + 1);
             lambda = System.Convert.ToDouble(textBox2.Text);
             rand_val_array = new double[M];
             gist_array = new double[K];
@@ -44,7 +44,7 @@ using System.Windows.Forms.DataVisualization;
         {
             M = System.Convert.ToInt32(textBox3.Text);
             N = System.Convert.ToInt32(textBox1.Text);
-            K = M / 5; // may be loss of data 
+            K = (int)(1.44 * Math.Log(M) + 1);
             lambda = System.Convert.ToDouble(textBox2.Text);
             rand_val_array = new double[M];
             gist_array = new double[K];
