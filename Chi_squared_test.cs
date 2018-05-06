@@ -12,16 +12,17 @@ namespace Random_value
             return (Math.Pow(2, -r/2) / SF.GammaFunction(r / 2)) * Math.Pow(x, (r/2) - 1) * Math.Exp(-x/2);
         }
 
-        public void distribute_chi()
+        public double distribute_chi(double R0, int r)
         {
-            double res = 0.0;
-            for (int k = 1; k < 1000; ++k)
-            {
-                //a = -inf
-                //b = +inf
-                //res += (get_density(a + ((b - a) * (k - 1) / 1000)) +
-                //    get_density(a + ((b - a) * k / 1000))) * (b - a) / 2000;
-            }
+            //double res = 0.0;
+            //for (int k = 1; k < 1000; ++k)
+            //{
+            //    res += (Math.Pow(2, -(k - 1) / 2) / SF.GammaFunction((k - 1) / 2)) * Math.Pow(R0 * (k - 1) / 1000, ((k - 1) / 2) - 1) * Math.Exp(-R0 * (k - 1) / 1000 / 2)
+            //    res += (this.get_density(, k - 1)) +
+            //        this.get_density(R0 * k / 1000, k - 1) * (R0 / 2000);
+            //}
+            //return res;
+            return alglib.incompletegamma(R0 * Math.Pow(2, 0.5*r), 0.5 * r);
         }
     }
 }

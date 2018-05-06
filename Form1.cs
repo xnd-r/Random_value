@@ -23,8 +23,9 @@ using System.Windows.Forms.DataVisualization;
         double interval_len;
         Array rand_val_array;
         Array gist_array;
-        double[] hit_probability;
-        double[] hypo_array;
+        double[] qj_array;
+        double[] nj_array;
+        double[] Z;
         double lboard, rboard;
 
         double delta;
@@ -80,39 +81,60 @@ using System.Windows.Forms.DataVisualization;
 
         }
 
-        private void hypo_intervals()
+        private void set_nj()
         {
             int K = Convert.ToInt16(textBox4.Text);
             lboard = Convert.ToDouble(textBox5.Text);
             rboard = Convert.ToDouble(textBox6.Text);
             delta = Convert.ToDouble(textBox7.Text);
 
-            for (int j = 0; j < K; ++j)
+            int counter = 0;
+
+            for (int i = 0; i < M; ++i)
             {
-                int counter = 0;
+                if (Convert.ToDouble(rand_val_array.GetValue(i)) < Z[0])
+                {
+                    counter++;
+                }
+            }
+            nj_array[0] = counter;
+            counter = 0;
+
+            for (int j = 1; j < K - 1; ++j)
+            {
+                counter = 0;
                 for (int i = 0; i < M; ++i)
                 {
-                    if (lboard + j * delta < Convert.ToDouble(rand_val_array.GetValue(i))
-                        && Convert.ToDouble(rand_val_array.GetValue(i)) < lboard + (j + 1) * delta)
+                    if (Z[j - 1] < Convert.ToDouble(rand_val_array.GetValue(i))
+                        && Convert.ToDouble(rand_val_array.GetValue(i)) < Z[j])
                     {
                         counter++;
                     }
 
                 }
-                hypo_array[j] = (counter / (M * delta));
+                nj_array[j] = counter;
                 counter = 0;
             }
 
+            for (int i = 0; i < M; ++i)
+            {
+                if (Z[K - 1] < Convert.ToDouble(rand_val_array.GetValue(i)))
+                {
+                    counter++;
+                }
+            }
+            nj_array[K - 1] = counter;
         }
 
-        private void set_R0(int m, int k, double[] ar, double[] hit_ar)
+        private double set_R0(int m, int k, double[] nj_ar, double[] nq_ar)
         {
             double res = 0.0;
             for (int j = 0; j < k; ++j)
             {
-                res += (Math.Pow((ar[j]/m) - hit_ar[j], 2) / ar[j]);
+                res += (Math.Pow((nj_ar[j]) - (m *nq_ar[j]), 2) / (m * nq_ar[j]));
             }
-            R0 = (res * m);
+            R0 = res;
+            return R0;
         }
 
         private double get_F_th(double x, double l)
@@ -200,7 +222,7 @@ using System.Windows.Forms.DataVisualization;
             double lambda = System.Convert.ToDouble(textBox2.Text);
             // create graph generator
             GraphFunctionGenerator gFGenerator = new GraphFunctionGenerator(50, lambda);
-            // create зшсегку generator
+            // create picture generator
             GraphicsImageGenerator gIGenerator =
                 new GraphicsImageGenerator(
                     gFGenerator.ListOfPoints, pictureBox.Width,
@@ -270,14 +292,23 @@ using System.Windows.Forms.DataVisualization;
 
         private void set_qj(double[] ar, int K)
         {
+            //qj_array[0] = alglib.normaldistribution(ar[0]);
+
+            //for (int i = 1; i < K - 1; ++i)
+            //{
+            //    qj_array[i] = alglib.normaldistribution(ar[i]) - alglib.normaldistribution(ar[i - 1]);
+            //}
+
+            //qj_array[K - 1] = 1 - alglib.normaldistribution(ar[K - 1]);
+
             normal_generation E = new normal_generation();
-            hit_probability[0] = 0.5 * (1 + E.Erf((ar[0] - (N / lambda)) / Math.Sqrt(2 * N / (lambda * lambda))));
+            qj_array[0] = 0.5 * (1 + E.Erf((ar[0] - (N / lambda)) / Math.Sqrt(2 * N / (lambda * lambda))));
             for (int i = 1; i < K - 1; ++i)
             {
-                hit_probability[i] = 0.5 * (1 + E.Erf((ar[i] - (N / lambda)) / Math.Sqrt(2 * N / (lambda * lambda)))) -
+                qj_array[i] = 0.5 * (1 + E.Erf((ar[i] - (N / lambda)) / Math.Sqrt(2 * N / (lambda * lambda)))) -
                     0.5 * (1 + E.Erf((ar[i - 1] - (N / lambda)) / Math.Sqrt(2 * N / (lambda * lambda))));
             }
-            hit_probability[K - 1] = 1 - 0.5 * (1 + E.Erf((ar[K - 1] - (N / lambda)) / Math.Sqrt(2 * N / (lambda * lambda))));
+            qj_array[K - 1] = 1 - 0.5 * (1 + E.Erf((ar[K - 1] - (N / lambda)) / Math.Sqrt(2 * N / (lambda * lambda))));
         }
 
         private double get_max_dif(double[] yF, double[] yFCh, int n)
@@ -297,7 +328,8 @@ using System.Windows.Forms.DataVisualization;
                 dataGridView3.Columns.Add("column", Convert.ToString(i + 1));
             }
             dataGridView3.Rows.Add();
-                        dataGridView3.Rows.Add();
+            dataGridView3.Rows.Add();
+
             for (int i = 0; i < K; ++i)
             {
                 dataGridView3.Rows[0].Cells[i].Value = Convert.ToString(get_density(lboard + (i + 0.5) * delta));
@@ -327,23 +359,38 @@ using System.Windows.Forms.DataVisualization;
 
         private void button7_Click(object sender, EventArgs e)
         {
-            double Z1 = (Convert.ToDouble(textBox6.Text));
-
+            double Z1 = (Convert.ToDouble(textBox5.Text));
             int K = Convert.ToInt16(textBox4.Text);
             textBox7.Text = Convert.ToString((Convert.ToDouble(textBox6.Text) 
                 - Convert.ToDouble(textBox5.Text)) / Convert.ToDouble(textBox4.Text));
             double delta = Convert.ToDouble(textBox7.Text);
-            hit_probability = new double[K]; // qj
-            hypo_array = new double[K]; // nj
-            hypo_intervals(); // nj
+            Z = new double[K];
+            Z[0] = Z1;
+            for (int i = 1; i < K; ++i)
+            {
+                Z[i] = Z1 + i * delta;
+            }
 
-            set_qj(hit_probability, K); //qj
-            set_R0(M, K, hypo_array, hit_probability);
-            //distribute_chi();
+            qj_array = new double[K];
+            nj_array = new double[K];
+            set_nj();
+            set_qj(Z, K);
 
+            dataGridView4.Rows.Clear();
 
-
-
+            for (int i = 0; i < K; ++i)
+            {
+                dataGridView4.Rows.Add();
+                dataGridView4.Rows[i].Cells[0].Value = Convert.ToString(i + 1);
+                dataGridView4.Rows[i].Cells[1].Value = Convert.ToString(Z[i]);
+                dataGridView4.Rows[i].Cells[2].Value = Convert.ToString(nj_array[i]);
+                dataGridView4.Rows[i].Cells[3].Value = Convert.ToString(qj_array[i]);
+            }
+            textBox10.Text = Convert.ToString(set_R0(M, K, nj_array, qj_array));
+            Chi_squared_test CST = new Chi_squared_test();
+            //double F = CST.distribute_chi(R0, M);
+            //textBox9.Text = Convert.ToString(1.0 - F);
+            textBox9.Text = Convert.ToString(1.0 - alglib.incompletegamma(R0 * Math.Pow(2, 0.5 * (M - 1)), 0.5 * (M - 1)));
         }
 
         private void label11_Click(object sender, EventArgs e)

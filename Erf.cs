@@ -13,7 +13,7 @@ namespace Random_value
             double a4 = -1.453152027;
             double a5 = 1.061405429;
             double p = 0.3275911;
-
+            
             // Save the sign of x
             int sign = 1;
             if (x < 0)

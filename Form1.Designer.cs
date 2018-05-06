@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea35 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend35 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series35 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea36 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend36 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series36 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Random_value = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,7 +49,7 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.Part_1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -73,27 +73,38 @@
             this.button4 = new System.Windows.Forms.Button();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            this.Part_1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -129,17 +140,17 @@
             // 
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea35.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea35);
-            legend35.Name = "Legend1";
-            this.chart1.Legends.Add(legend35);
+            chartArea7.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.chart1.Legends.Add(legend7);
             this.chart1.Location = new System.Drawing.Point(792, 46);
             this.chart1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chart1.Name = "chart1";
-            series35.ChartArea = "ChartArea1";
-            series35.Legend = "Legend1";
-            series35.Name = "Series1";
-            this.chart1.Series.Add(series35);
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.chart1.Series.Add(series7);
             this.chart1.Size = new System.Drawing.Size(845, 528);
             this.chart1.TabIndex = 16;
             this.chart1.Text = "chart1";
@@ -210,19 +221,19 @@
             this.Column9.HeaderText = "Diff";
             this.Column9.Name = "Column9";
             // 
-            // tabControl1
+            // Part_1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Part_1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(16, 15);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1656, 743);
-            this.tabControl1.TabIndex = 20;
+            this.Part_1.Controls.Add(this.tabPage1);
+            this.Part_1.Controls.Add(this.tabPage2);
+            this.Part_1.Controls.Add(this.tabPage3);
+            this.Part_1.Location = new System.Drawing.Point(16, 15);
+            this.Part_1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Part_1.Name = "Part_1";
+            this.Part_1.SelectedIndex = 0;
+            this.Part_1.Size = new System.Drawing.Size(1656, 745);
+            this.Part_1.TabIndex = 20;
             // 
             // tabPage1
             // 
@@ -471,7 +482,7 @@
             this.dataGridView3.Location = new System.Drawing.Point(819, 64);
             this.dataGridView3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(819, 125);
+            this.dataGridView3.Size = new System.Drawing.Size(819, 126);
             this.dataGridView3.TabIndex = 22;
             // 
             // button4
@@ -491,25 +502,30 @@
             this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea36.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea36);
-            legend36.Enabled = false;
-            legend36.Name = "Legend1";
-            this.chart2.Legends.Add(legend36);
+            chartArea8.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea8);
+            legend8.Enabled = false;
+            legend8.Name = "Legend1";
+            this.chart2.Legends.Add(legend8);
             this.chart2.Location = new System.Drawing.Point(8, 197);
             this.chart2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chart2.Name = "chart2";
-            series36.ChartArea = "ChartArea1";
-            series36.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series36.Legend = "Legend1";
-            series36.Name = "Series1";
-            this.chart2.Series.Add(series36);
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Legend = "Legend1";
+            series8.Name = "Series1";
+            this.chart2.Series.Add(series8);
             this.chart2.Size = new System.Drawing.Size(1629, 491);
             this.chart2.TabIndex = 20;
             this.chart2.Text = "chart2";
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.dataGridView4);
+            this.tabPage3.Controls.Add(this.textBox10);
+            this.tabPage3.Controls.Add(this.label12);
+            this.tabPage3.Controls.Add(this.textBox9);
+            this.tabPage3.Controls.Add(this.pictureBox1);
             this.tabPage3.Controls.Add(this.textBox8);
             this.tabPage3.Controls.Add(this.label11);
             this.tabPage3.Controls.Add(this.button7);
@@ -525,114 +541,213 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage3.Size = new System.Drawing.Size(1648, 714);
+            this.tabPage3.Size = new System.Drawing.Size(1648, 716);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
-            // label7
+            // textBox10
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(14, 35);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(144, 17);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Suggested amount K:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox10.Location = new System.Drawing.Point(249, 332);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(127, 30);
+            this.textBox10.TabIndex = 14;
             // 
-            // textBox4
+            // label12
             // 
-            this.textBox4.Location = new System.Drawing.Point(164, 30);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(38, 22);
-            this.textBox4.TabIndex = 1;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label12.Location = new System.Drawing.Point(198, 335);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(42, 25);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "R0:";
             // 
-            // label8
+            // textBox9
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(57, 61);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(101, 17);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Suggested Z1:";
+            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox9.Location = new System.Drawing.Point(251, 386);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(124, 30);
+            this.textBox9.TabIndex = 12;
             // 
-            // label9
+            // pictureBox1
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(27, 89);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(131, 17);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Suggested Z(k - 1):";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(164, 58);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(38, 22);
-            this.textBox5.TabIndex = 4;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(164, 86);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(38, 22);
-            this.textBox6.TabIndex = 5;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(164, 114);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(38, 22);
-            this.textBox7.TabIndex = 7;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(17, 117);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(141, 17);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "Resulted interval len:";
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(72, 170);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(98, 40);
-            this.button7.TabIndex = 8;
-            this.button7.Text = "Calculate";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.pictureBox1.Image = global::Random_value.Properties.Resources.F_R0_;
+            this.pictureBox1.Location = new System.Drawing.Point(119, 382);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(125, 52);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(164, 142);
+            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox8.Location = new System.Drawing.Point(249, 223);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(38, 22);
+            this.textBox8.Size = new System.Drawing.Size(127, 30);
             this.textBox8.TabIndex = 10;
             this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(39, 145);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.Location = new System.Drawing.Point(69, 226);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(119, 17);
+            this.label11.Size = new System.Drawing.Size(165, 25);
             this.label11.TabIndex = 9;
             this.label11.Text = "significance level:";
             this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button7.Location = new System.Drawing.Point(97, 276);
+            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(147, 39);
+            this.button7.TabIndex = 8;
+            this.button7.Text = "Calculate";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // textBox7
+            // 
+            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox7.Location = new System.Drawing.Point(249, 176);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(127, 30);
+            this.textBox7.TabIndex = 7;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(36, 180);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(192, 25);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Resulted interval len:";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox6.Location = new System.Drawing.Point(249, 129);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(127, 30);
+            this.textBox6.TabIndex = 5;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox5.Location = new System.Drawing.Point(249, 82);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(127, 30);
+            this.textBox5.TabIndex = 4;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(51, 133);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(182, 25);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Suggested Z(k - 1):";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(92, 86);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(141, 25);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Suggested Z1:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox4.Location = new System.Drawing.Point(249, 36);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(127, 30);
+            this.textBox4.TabIndex = 1;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(27, 39);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(202, 25);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Suggested amount K:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.Column10,
+            this.Column11});
+            this.dataGridView4.Location = new System.Drawing.Point(422, 36);
+            this.dataGridView4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowTemplate.Height = 24;
+            this.dataGridView4.Size = new System.Drawing.Size(691, 400);
+            this.dataGridView4.TabIndex = 15;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.FillWeight = 30F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "j";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.FillWeight = 200F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Z[j]";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 200;
+            // 
+            // Column10
+            // 
+            this.Column10.FillWeight = 200F;
+            this.Column10.HeaderText = "n[j]";
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 200;
+            // 
+            // Column11
+            // 
+            this.Column11.FillWeight = 200F;
+            this.Column11.HeaderText = "q[j]";
+            this.Column11.Name = "Column11";
+            this.Column11.Width = 200;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1676, 745);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(1681, 773);
+            this.Controls.Add(this.Part_1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -640,7 +755,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.tabControl1.ResumeLayout(false);
+            this.Part_1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
@@ -649,6 +764,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -659,7 +776,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Random_value;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl Part_1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button3;
@@ -703,6 +820,15 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
     }
 }
 
