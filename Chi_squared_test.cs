@@ -9,6 +9,7 @@ namespace Random_value
         StatisticFormula SF;
         public double get_density(double x, double r) // r == k - 1 -- amount of degress of liberty
         {
+
             return (Math.Pow(2, -r/2) / SF.GammaFunction(r / 2)) * Math.Pow(x, (r/2) - 1) * Math.Exp(-x/2);
         }
 
